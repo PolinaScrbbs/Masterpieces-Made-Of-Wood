@@ -1,0 +1,100 @@
+{% extends "base.html" %}
+{% load static %}
+
+{% block content %}
+    <div class="bg-container">
+        
+        <div class="intro">
+            <div class="container intro__container">
+                <div class="intro__title">Шедевры из <br> дерева | Курск</div>
+                <div class="intro__subtitle">Мы занимаемся изготовлением изделий из дерева</div>
+                <div class="intro__buttons">
+                    <button class="intro__btn btn">Заказать</button>
+                    <button class="intro__btn btn">Услуги</button>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="advantages">
+        <div class="container advantages__container">
+            <div class="advantages__items">
+                <div class="advantages__item">
+                    <img src="{% static 'icon/message.svg' %}" alt="" class="advantages__img">
+                    <div class="advantages__title">Преимущество #1</div>
+                    <div class="advantages__description">
+                        Повседневная практика показывает, что начало повседневной работы.
+                    </div>
+                </div>
+                <div class="advantages__item">
+                    <img src="{% static 'icon/settings.svg' %}" alt="" class="advantages__img">
+                    <div class="advantages__title">Преимущество #2</div>
+                    <div class="advantages__description">
+                        По формированию позиции представляет собой интересный эксперимент проверки системы
+                    </div>
+                </div>
+                <div class="advantages__item">
+                    <img src="{% static 'icon/refresh.svg' %}" alt="" class="advantages__img">
+                    <div class="advantages__title">Преимущество #3</div>
+                    <div class="advantages__description">
+                        Обучения кадров, соответствует насущным потребностям. Таким образом укрепление и развитие структуры представляет
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="services">
+        <div class="services__container container">
+            <div class="services__name">Наши услуги</div>
+            <div class="services__items">
+                <div class="services__item">
+                    <a href="">
+                        <img src="{% static 'img/img.png' %}" alt="" class="services__img">
+                        <div class="services__title">Поделки и сувениры</div>
+                        <div class="services__description">
+                            Таким образом новая модель организационной деятельности способствует подготовки и реализации систем массового участия.
+                        </div>
+                    </a>
+                </div>
+                <div class="services__item">
+                    <a href="">
+                        <img src="{% static 'img/img.png' %}" alt="" class="services__img">
+                        <div class="services__title">Выжигание портретов</div>
+                        <div class="services__description">
+                            Повседневная практика показывает, что сложившаяся структура организации влечет за собой процесс внедрения и модернизации направлений прогрессивного развития.
+                        </div>
+                    </a>
+                </div>
+                <div class="services__item">
+                    <a href="">
+                        <img src="{% static 'img/img.png' %}" alt="" class="services__img">
+                        <div class="services__title">ВЫЖИГАНИЕ КАРТИН</div>
+                        <div class="services__description">
+                            Повседневная практика показывает, что сложившаяся структура организации влечет за собой процесс внедрения и модернизации направлений прогрессивного развития.                    
+                        </div>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="works">
+        <div class="works__container container">
+            <div class="works__title">Наши работы</div>
+            <div class="works__items">
+                <div class="works__item" id="works__item-1">works__item-1</div>
+                <div class="works__item" id="works__item-2">works__item-2</div>
+                <div class="works__item" id="works__item-3">works__item-3</div>
+                <div class="works__item" id="works__item-4">works__item-4</div>
+                <div class="works__item" id="works__item-5">works__item-5</div>
+                <div class="works__item" id="works__item-6">works__item-6</div>
+                <div class="works__item" id="works__item-7">works__item-7</div>
+                <div class="works__item" id="works__item-8">works__item-8</div>
+                <div class="works__item" id="works__item-9">works__item-9</div>
+                <div class="works__item" id="works__item-10">works__item-10</div>
+            </div>
+        </div>
+    </div>
+{% endblock content %}
+
+{% block scripts %}
+    <script src="{% static 'js/header.js' %}"></script>
+{% endblock scripts %}

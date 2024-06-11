@@ -1,0 +1,95 @@
+{% extends "base.html" %}
+{% load static %}
+
+{% block content %}
+    <main>
+        <div class="service">
+            <div class="service__container container">
+                <div class="service__items">
+                    <div class="service__info">
+                        <div class="service__title">ПОДЕЛКИ И СУВЕНИРЫ</div>
+                        <div class="service__description">
+                            <p>
+                                Разнообразный и богатый опыт рамки и место обучения кадров представляет собой интересный эксперимент проверки направлений прогрессивного развития. С другой стороны начало повседневной работы по формированию позиции влечет за собой процесс внедрения и модернизации системы
+                            </p>
+                            <p>
+                                Соответствует насущным потребностям. Таким образом дальнейшее развитие различных форм деятельности представляет собой интересный эксперимент проверки систем массового участия. Разнообразный и богатый опыт постоянный количественный рост и сфера нашей активности требуют от нас
+                            </p>
+                        </div>
+                    </div>
+                    <div class="service__img">
+                        <img src="{% static 'img/img.png' %}" alt="serviceImg">
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="works">
+            <div class="works__container container">
+                <div class="works__items">
+                    <div class="works__item" id="works__item-1">works__item-1</div>
+                    <div class="works__item" id="works__item-2">works__item-2</div>
+                    <div class="works__item" id="works__item-3">works__item-3</div>
+                    <div class="works__item" id="works__item-4">works__item-4</div>
+                    <div class="works__item" id="works__item-5">works__item-5</div>
+                    <div class="works__item" id="works__item-6">works__item-6</div>
+                    <div class="works__item" id="works__item-7">works__item-7</div>
+                    <div class="works__item" id="works__item-8">works__item-8</div>
+                    <div class="works__item" id="works__item-9">works__item-9</div>
+                    <div class="works__item" id="works__item-10">works__item-10</div>
+                </div>
+            </div>
+        </div>
+        <div class="order">
+            <div class="order__container container">
+                <div class="order__items">
+                    <div class="order__item">
+                        <img src="{% static 'icon/dots.svg' %}" alt="dots">
+                    </div>
+                    <div class="order__item">
+                        <div class="order__title">ТАКЖЕ МЫ РАБОТАЕМ ИНДИВИДУАЛЬНО ПОД ЗАКАЗ</div>
+                        <div class="order__description">
+                            <p>
+                                Повседневная практика показывает, что начало повседневной работы по формированию позиции представляет собой интересный эксперимент проверки системы обучения кадров, соответствует насущным потребностям. Таким образом укрепление и развитие структуры представляет собой
+                            </p>
+                            <p>
+                                Формированию позиции представляет собой интересный эксперимент проверки системы обучения кадров, соответствует насущным потребностям. Таким образом укрепление и развитие структуры представляет собой интересный эксперимент проверки дальнейших направлений развития.
+                            </p>
+                        </div>
+                        <div class="order__icons">
+                            <a href="https://t.me/+yPSkLvoEQmo2NTUy">
+                                <img src="{% static 'icon/tg.svg' %}" alt="telegram" class="order__icon">
+                            </a>
+                            <a href="#">
+                                <img src="{% static 'icon/ws.svg' %}" alt="whatsapp" class="order__icon">
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="products">
+            <div class="products__container container">
+                <div class="products__name">Готовая продукция</div>
+                <div class="products__items">
+                    {% for product in products %}
+                        <div class="products__item">
+                            <img class="products__img" src="{{product.img.url}}" alt="productImage">
+                            <div class="products__title">{{product.title}}</div>
+                            <div class="products_price">{{product.price}}р</div>
+                        </div>
+                    {% endfor %}
+                </div>
+                <div class="products__btn">
+                    <button class="btn" id="showMoreBtn">Показать еще</button>
+                    <button class="btn" id="showLessBtn" style="display: none;">Скрыть</button>
+                </div>
+            </div>
+        </div>
+    </main>
+{% endblock content %}
+
+{% block scripts %}
+    <script src="{% static 'js/app.js' %}"></script>
+    <script src="{% static 'js/header.js' %}"></script>
+{% endblock scripts %}
+    

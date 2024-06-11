@@ -1,0 +1,52 @@
+{% extends "base.html" %}
+{% load static %}
+{% load tags %}
+
+{% block content %}
+    <main>
+        <div class="reviews">
+            <div class="reviews__title">
+                Наши отзывы
+            </div>
+            <div class="reviews__container container">
+                <div class="reviews__comments">
+                    {% for review in reviews %}
+                        <div class="reviews__comment">
+                            <div class="reviews__name">
+                                {{review.author_full_name}}
+                            </div>
+                            <div class="reviews__info">
+                                <div class="reviews__date">{{review.date|date_format}}</div>
+                                <div class="reviews__star">
+                                    {% for star in review.estimation|times %}
+                                        <img src="{% static 'icon/star.svg' %}" alt="">
+                                    {% endfor %}
+                                </div>
+                                <div class="reviews__tag">{{review.estimation|feedback_message}}</div>
+                            </div>
+                            <div class="reviews__text">{{review.content}}</div>
+                        </div>
+                    {% endfor %}
+                </div>
+                <div class="reviews__rating rating">
+                    <div class="rating__title">Рейтинг магазина</div>
+                    <div class="rating__rating"><span>{{average_estimation}}</span>/5</div>
+                    <div class="rating__stars">
+                        {% for star in average_estimation|times %}
+                            <img src="{% static 'icon/star.svg' %}" alt="">
+                        {% endfor %}
+                    </div>
+                    <div class="rating__suptitle">На основе {{reviews_count}} оценок покупателей</div>
+                    <div class="rating__subtitle">Оставьте свой отзыв о нас!</div>
+                    <div class="rating__btn">
+                        <button>Написать</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+{% endblock content %}
+    
+{% block scripts %}
+    <script src="js/header.js"></script>
+{% endblock scripts %}

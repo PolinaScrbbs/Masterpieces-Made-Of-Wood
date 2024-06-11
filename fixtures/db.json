@@ -1,0 +1,259 @@
+[
+{
+  "model": "auth.user",
+  "pk": 1,
+  "fields": {
+    "password": "pbkdf2_sha256$720000$raYiqMp0s07NzgsNZbqWo1$fg0uZVyfzeCqN6FMeFFw2++SfAhC1aDEfdUZfL6FOzw=",
+    "last_login": "2024-06-11T09:22:24.582Z",
+    "is_superuser": true,
+    "username": "123",
+    "first_name": "",
+    "last_name": "",
+    "email": "1@gmail.com",
+    "is_staff": true,
+    "is_active": true,
+    "date_joined": "2024-06-11T06:48:16.092Z",
+    "groups": [],
+    "user_permissions": []
+  }
+},
+{
+  "model": "app.producttype",
+  "pk": 1,
+  "fields": {
+    "title": "Поделки и сувениры"
+  }
+},
+{
+  "model": "app.producttype",
+  "pk": 2,
+  "fields": {
+    "title": "Выжигание портретов"
+  }
+},
+{
+  "model": "app.producttype",
+  "pk": 3,
+  "fields": {
+    "title": "Выжигание картин"
+  }
+},
+{
+  "model": "app.product",
+  "pk": 1,
+  "fields": {
+    "title": "Поделка 1",
+    "type": 1,
+    "price": "1000.00",
+    "img": "product_img/default.png"
+  }
+},
+{
+  "model": "app.product",
+  "pk": 2,
+  "fields": {
+    "title": "Поделка 2",
+    "type": 1,
+    "price": "1000.00",
+    "img": "product_img/default.png"
+  }
+},
+{
+  "model": "app.product",
+  "pk": 3,
+  "fields": {
+    "title": "Поделка 3",
+    "type": 1,
+    "price": "1500.00",
+    "img": "product_img/default.png"
+  }
+},
+{
+  "model": "app.product",
+  "pk": 4,
+  "fields": {
+    "title": "Поделка 4",
+    "type": 1,
+    "price": "1450.00",
+    "img": "product_img/default.png"
+  }
+},
+{
+  "model": "app.product",
+  "pk": 5,
+  "fields": {
+    "title": "Поделка 5",
+    "type": 1,
+    "price": "970.00",
+    "img": "product_img/default.png"
+  }
+},
+{
+  "model": "app.product",
+  "pk": 6,
+  "fields": {
+    "title": "Поделка 6",
+    "type": 1,
+    "price": "300.00",
+    "img": "product_img/default.png"
+  }
+},
+{
+  "model": "app.product",
+  "pk": 7,
+  "fields": {
+    "title": "Поделка 7",
+    "type": 1,
+    "price": "3000.00",
+    "img": "product_img/default.png"
+  }
+},
+{
+  "model": "app.product",
+  "pk": 8,
+  "fields": {
+    "title": "Поделка 8",
+    "type": 1,
+    "price": "8000.00",
+    "img": "product_img/default.png"
+  }
+},
+{
+  "model": "app.product",
+  "pk": 9,
+  "fields": {
+    "title": "Поделка 9",
+    "type": 1,
+    "price": "4500.00",
+    "img": "product_img/default.png"
+  }
+},
+{
+  "model": "app.product",
+  "pk": 10,
+  "fields": {
+    "title": "Портрет 1",
+    "type": 2,
+    "price": "4750.00",
+    "img": "product_img/default.png"
+  }
+},
+{
+  "model": "app.product",
+  "pk": 11,
+  "fields": {
+    "title": "Портрет 2",
+    "type": 2,
+    "price": "3000.00",
+    "img": "product_img/default.png"
+  }
+},
+{
+  "model": "app.product",
+  "pk": 12,
+  "fields": {
+    "title": "Портрет 3",
+    "type": 2,
+    "price": "12500.00",
+    "img": "product_img/default.png"
+  }
+},
+{
+  "model": "app.product",
+  "pk": 13,
+  "fields": {
+    "title": "Портрет 4",
+    "type": 2,
+    "price": "5600.00",
+    "img": "product_img/default.png"
+  }
+},
+{
+  "model": "app.product",
+  "pk": 14,
+  "fields": {
+    "title": "Портрет 5",
+    "type": 2,
+    "price": "12500.00",
+    "img": "product_img/default.png"
+  }
+},
+{
+  "model": "app.product",
+  "pk": 15,
+  "fields": {
+    "title": "Картина 1",
+    "type": 3,
+    "price": "17500.00",
+    "img": "product_img/default.png"
+  }
+},
+{
+  "model": "app.product",
+  "pk": 16,
+  "fields": {
+    "title": "Картина 2",
+    "type": 3,
+    "price": "15000.00",
+    "img": "product_img/default.png"
+  }
+},
+{
+  "model": "app.product",
+  "pk": 17,
+  "fields": {
+    "title": "Картина 3",
+    "type": 3,
+    "price": "9800.00",
+    "img": "product_img/default.png"
+  }
+},
+{
+  "model": "app.feedback",
+  "pk": 1,
+  "fields": {
+    "author_full_name": "Ивановский Тимофей Владиславович",
+    "author_tg": "@PolinaScrbbs",
+    "product": 1,
+    "content": "Вы красавчики, лучшие",
+    "estimation": 5,
+    "date": "2024-06-11T09:22:46.854Z"
+  }
+},
+{
+  "model": "app.feedback",
+  "pk": 2,
+  "fields": {
+    "author_full_name": "Ивановский Тимофей Владиславович",
+    "author_tg": "@PolinaScrbbs",
+    "product": 15,
+    "content": "Фигня -реп",
+    "estimation": 1,
+    "date": "2024-06-11T09:23:57.358Z"
+  }
+},
+{
+  "model": "app.feedback",
+  "pk": 3,
+  "fields": {
+    "author_full_name": "Ивановский Тимофей Владиславович",
+    "author_tg": "@PolinaScrbbs",
+    "product": 7,
+    "content": "Ну такое, могло быть и лучше",
+    "estimation": 3,
+    "date": "2024-06-11T09:24:17.273Z"
+  }
+},
+{
+  "model": "app.feedback",
+  "pk": 4,
+  "fields": {
+    "author_full_name": "Ивановский Тимофей Владиславович",
+    "author_tg": "@PolinaScrbbs",
+    "product": 5,
+    "content": "НУ типа заебок",
+    "estimation": 5,
+    "date": "2024-06-11T09:34:39.577Z"
+  }
+}
+]
