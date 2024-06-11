@@ -1,7 +1,6 @@
 from django.shortcuts import render
 from django.db.models import Avg
 from .models import ProductType, Product, Feedback
-
 def index(request):
 
     context = {
@@ -43,3 +42,4 @@ def services(request, *args, **kwargs):
     print(Product.objects.filter(type = ProductType.objects.get(title=type_title)))
 
     return render(request, 'services.html', context)
+

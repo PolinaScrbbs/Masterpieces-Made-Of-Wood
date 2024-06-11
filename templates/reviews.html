@@ -3,6 +3,11 @@
 {% load tags %}
 
 {% block content %}
+<style>
+    html{
+        height: initial;
+    }
+</style>
     <main>
         <div class="reviews">
             <div class="reviews__title">
@@ -39,8 +44,59 @@
                     <div class="rating__suptitle">На основе {{reviews_count}} оценок покупателей</div>
                     <div class="rating__subtitle">Оставьте свой отзыв о нас!</div>
                     <div class="rating__btn">
-                        <button>Написать</button>
+                        <button id="openFeedbackBtn">Написать</button>
                     </div>
+
+                    <div id="myModal" class="modal">
+                        <div class="modal-content">
+                            <span class="close">&times;</span>
+                            <div class="modal__title">Оставьте свой отзыв</div>                            
+                                <form method="post" class="feedback">
+                                    <div class="feedback__form cf">
+                                        <div class="half feedback__left cf">
+                                          <input type="text" id="input-name" placeholder="Полное имя">
+                                          <input type="email" id="input-email" placeholder="Ваш телеграм">
+
+                                          <div class="menu-container">                                          
+                                              <div class="dropdown">
+                                                <div class="select">
+                                                  <span>Выберите продукт</span>
+                                                  <i class="fa fa-chevron-left"></i>
+                                                </div>
+                                                <input type="hidden" name="products">
+                                                <ul class="dropdown-menu">
+                                                  <li id="">1</li>
+                                                  <li id="">2</li>
+                                                  <li id="">3</li>
+                                                  <li id="">4</li>
+                                                </ul>
+                                              </div>                                          
+                                            </div>
+                                          
+                                        </div>
+                                        <div class="half feedback__right cf">
+                                          <textarea name="message" type="text" id="input-message" placeholder="Ваш отзыв"></textarea>
+                                          
+                                        </div>  
+                                    </div>
+                                    <div class="feedback__btn">
+                                        <div class="feedback-rating">
+                                            <input type="radio" name="star" id="star5" value="5" onclick="updateFeedbackText(this.value)"><label for="star5">&#9733;</label>
+                                            <input type="radio" name="star" id="star4" value="4" onclick="updateFeedbackText(this.value)"><label for="star4">&#9733;</label>
+                                            <input type="radio" name="star" id="star3" value="3" onclick="updateFeedbackText(this.value)"><label for="star3">&#9733;</label>
+                                            <input type="radio" name="star" id="star2" value="2" onclick="updateFeedbackText(this.value)"><label for="star2">&#9733;</label>
+                                            <input type="radio" name="star" id="star1" value="1" onclick="updateFeedbackText(this.value)"><label for="star1">&#9733;</label>
+                                        </div>
+                                        <div class="feedback-est">
+                                           
+                                        </div>
+                                        <button class="" type="submit">Оставить отзыв</button>
+                                    </div>
+                                </form>
+
+                        </div>
+                    </div>
+
                 </div>
             </div>
         </div>
@@ -48,5 +104,7 @@
 {% endblock content %}
     
 {% block scripts %}
-    <script src="js/header.js"></script>
+<script src="https://code.jquery.com/jquery-3.7.1.min.js" integrity="sha256-/JqT3SQfawRcv/BIHPThkBvs0OEvtFFmqPF/lYI/Cxo=" crossorigin="anonymous"></script>
+    <script src="{% static 'js/reviews.js' %}"></script>
+    <script src="{% static 'js/header.js' %}"></script>
 {% endblock scripts %}
