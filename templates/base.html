@@ -45,7 +45,7 @@
                 </div>
                 <div class="header__item">
                     <a class="header__link">8(906)575-71-95</a>
-                    <a class="header__link">Shedevers-Kursk46@yandex.ru</a>
+                    <a href="{% url 'about' %}#contacts" class="header__link">Контакты</a>
                 </div>
             </div>
             <div class="header__body">
@@ -69,16 +69,34 @@
 
     <footer class="footer">
         <div class="footer__container container">
+            <div class="footer__logo">
+                <img src="{% static 'img/img.png' %}" alt="">
+              </div>
             <div class="footer__items">
-                <a href="{% url 'index' %}" class="footer__link">Главная</a>
-                <a href="{% url 'about' %}" class="footer__link">О нас</a>
-                <a href="aboutUs.html" class="footer__link">Доставка</a>
-                {% comment %} <a href="#" class="footer__link">Оплата</a> {% endcomment %}
+                <div class="footer__item">
+                    <div class="footer__link">Контакты</div>
+                    <div class="footer__link">8(906)575-71-95</div>
+                    <div class="footer__link">Shedevers-Kursk46@yandex.ru</div>
+                </div>
+                <div class="footer__item">
+                    <div class="footer__link">Услуги</div>
+                    <a href="{% url 'services' type='Поделки_и_сувениры' %}" class="footer__link">Поделки и сувениры</a>
+                    <a href="{% url 'services' type='Выжигание_портретов' %}" class="footer__link">Выжигание портретов</a>
+                    <a href="{% url 'services' type='Выжигание_картин' %}" class="footer__link">Выжигание картин</a>
+                </div>
+                <div class="footer__item">
+                    <div class="footer__link">Подробнее</div>
+                    <a href="{% url 'index' %}" class="footer__link">Главная</a>
+                    <a href="{% url 'about' %}" class="footer__link">О нас</a>
+                    <a href="{% url 'delivery' %}" class="footer__link">Доставка</a>
+                    <a href="{% url 'reviews' %}" class="footer__link">Отзывы</a>
+                </div>
+              </div>
             </div>
             <div class="footer__bottom">
                 <div>Шедевры из дерева | Курск</div>
                 <div class="footer__adress">
-                    г. Курск, проспект Кулакова, 39А <br> с 10:00 до 21:00
+                    г. Курск, проспект Кулакова, 39А с 10:00 до 21:00
                 </div>
             </div>
         </div>

@@ -1,0 +1,37 @@
+{% extends "base.html" %}
+{% load static %}
+
+{% block content %}
+    <main>
+       <div class="delivery">
+            <div class="delivery__container container">
+                <div class="delivery__title">Способы доставки</div>
+                <div class="delivery_items">
+                    <div class="delivery__item">
+                        <div class="delivery__subtitle">1) Прямая сделка с клиентом – отдаем Вам товар лично</div>
+                        <ul class="delivery__options">
+                            <li class="delivery__option">Заранее обговариваем место встречи</li>
+                            <li class="delivery__option">Сделка состоится по адресу: г. Курск, проспект Кулакова, 39А</li>
+                        </ul>
+                    </div>
+                    <div class="delivery__item">
+                        <div class="delivery__subtitle">2) Отправка по СДЭКУ (CDEK) – придет посылкой</div>
+                        <ul class="delivery__options">
+                            <li class="delivery__option">Уточняется Ваш город проживания, необходимые контактные данные и адрес отделения CDEK</li>
+                            <li class="delivery__option">*Доставку оплачивает клиент</li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="delivery__map">
+                    <script type="text/javascript" charset="utf-8" async src="https://api-maps.yandex.ru/services/constructor/1.0/js/?um=constructor%3Ac5a40cfc5cc26a2e3a867c5f6773f1701832941894cbfc901971523b55d8b54c&amp;width=1160&amp;height=385&amp;lang=ru_RU&amp;scroll=true"></script>            
+                </div>
+                </div>
+            </div>
+       </div>
+    </main>
+{% endblock content %}
+
+{% block scripts %}
+    <script src="{% static 'js/header.js' %}"></script>
+{% endblock scripts %}
+    

@@ -86,3 +86,46 @@ document.querySelectorAll('.dropdown-menu li').forEach(function(item) {
         document.getElementById('product-id').value = value;
     });
 });
+
+//===================Префикc @
+document.addEventListener("DOMContentLoaded", function() {
+    const input = document.getElementById('input-email');
+    const prefix = '@';
+    let prefixAdded = false;
+
+    input.addEventListener('input', function(event) {
+        if (!prefixAdded && input.value.length > 0) {
+            input.value = prefix + input.value;
+            prefixAdded = true;
+        } else if (input.value === '') {
+            prefixAdded = false;
+        }
+    });
+
+    input.addEventListener('keydown', function(event) {
+        if (prefixAdded && input.selectionStart <= prefix.length && (event.key === 'Backspace' || event.key === 'Delete')) {
+            event.preventDefault();
+        }
+    });
+
+    input.addEventListener('paste', function(event) {
+        event.preventDefault();
+        const paste = (event.clipboardData || window.clipboardData).getData('text');
+        const selectionStart = input.selectionStart;
+        const selectionEnd = input.selectionEnd;
+
+        if (prefixAdded) {
+            if (selectionStart < prefix.length) {
+                input.value = prefix + paste + input.value.substring(selectionEnd);
+            } else {
+                input.value = input.value.substring(0, selectionStart) + paste + input.value.substring(selectionEnd);
+            }
+        } else {
+            input.value = paste;
+            if (input.value.length > 0) {
+                input.value = prefix + input.value;
+                prefixAdded = true;
+            }
+        }
+    });
+});

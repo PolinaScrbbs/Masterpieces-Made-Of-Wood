@@ -21,6 +21,14 @@ def about(request):
 
     return render(request, 'about_us.html', context)
 
+def delivery(request):
+
+    context = {
+        "title": "Доставка",
+    }
+
+    return render(request, 'delivery.html', context)
+
 class FeedbackView(View):
     def post(self, request):
         author_full_name = request.POST.get('author_full_name')

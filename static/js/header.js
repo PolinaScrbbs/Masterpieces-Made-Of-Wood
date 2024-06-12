@@ -41,3 +41,21 @@ menu.addEventListener("mouseleave", (event) => {
 menu.addEventListener("mouseenter", () => {
     menu.classList.add("show");
 });
+
+
+//========================
+document.addEventListener('DOMContentLoaded', function() {
+    if (window.location.hash) {
+        const hash = window.location.hash;
+        history.replaceState(null, null, ' '); // убираем хеш
+
+        setTimeout(function() {
+            const element = document.querySelector(hash);
+            if (element) {
+                element.scrollIntoView({ behavior: 'smooth' });
+            }
+            history.replaceState(null, null, hash);
+        }, 50);
+    }
+});
+
