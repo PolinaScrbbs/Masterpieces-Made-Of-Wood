@@ -34,8 +34,26 @@ document.addEventListener('DOMContentLoaded', () => {
     productItems.forEach(item => {
         item.addEventListener('click', (e) => {
             e.preventDefault();
-            modal.classList.add('show');
-            modalContent.classList.add('show');
+            const productId = item.dataset.id;
+            fetch(`/product/?product_id=${productId}`)
+                .then(response => {
+                    if (!response.ok) {
+                        throw new Error('Network response was not ok');
+                    }
+                    return response.json();
+                })
+                .then(data => {
+                    document.getElementById('modalProductImage').src = data.img_url;
+                    document.getElementById('modalProductTitle').textContent = data.title;
+                    document.getElementById('modalProductPrice').textContent = `${data.price} р.`;
+                    document.getElementById('modalProductDescription').textContent = data.description
+
+                    modal.classList.add('show');
+                    modalContent.classList.add('show');
+                })
+                .catch(error => {
+                    console.error('There has been a problem with your fetch operation:', error);
+                });
         });
     });
 

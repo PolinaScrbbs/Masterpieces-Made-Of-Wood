@@ -5,6 +5,8 @@ from django.utils.translation import gettext as _
 
 class ProductType(models.Model):
     title = models.CharField(_("Название"), max_length=50, unique=True, null=False)
+    description = models.TextField(_("Описание"), null=False)
+    img = models.ImageField(_("Картинка"), upload_to="product_type_images/", null=True)
 
     class Meta:
         verbose_name = _("Тип продукта")
@@ -15,10 +17,23 @@ class ProductType(models.Model):
 
     def get_absolute_url(self):
         return reverse("_detail", kwargs={"pk": self.pk})
+    
+class ProductTypeImage(models.Model):
+    product_type = models.ForeignKey(ProductType, related_name='images', on_delete=models.CASCADE)
+    img = models.ImageField(_("Изображение"), upload_to='product_type_images/', blank=True, null=True)
+    alt_text = models.CharField(_("Альтернативный текст"), max_length=255, blank=True)
+
+    class Meta:
+        verbose_name = _("Изображение типа продукта")
+        verbose_name_plural = _("Изображения типов продуктов")
+
+    def __str__(self):
+        return f"Изобряжение для {self.product_type.title}"
 
 class Product(models.Model):
     title = models.CharField(_("Название"), max_length=50, unique=True, null=False)
     type = models.ForeignKey("ProductType", verbose_name=_("Тип продукта"), on_delete=models.CASCADE, null=False)
+    description = models.CharField(_("Описание"), max_length=100, null=False)
     price = models.DecimalField(_("Цена"), max_digits=7, decimal_places=2, null=False)
 
     def get_upload_path(instance, filename):

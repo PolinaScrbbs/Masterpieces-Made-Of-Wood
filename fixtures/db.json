@@ -1,5 +1,174 @@
 [
 {
+  "model": "admin.logentry",
+  "pk": 1,
+  "fields": {
+    "action_time": "2024-06-12T17:45:35.600Z",
+    "user": 1,
+    "content_type": 8,
+    "object_id": "3",
+    "object_repr": "Выжигание картин",
+    "action_flag": 2,
+    "change_message": "[{\"changed\": {\"fields\": [\"\\u041e\\u043f\\u0438\\u0441\\u0430\\u043d\\u0438\\u0435\"]}}]"
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 2,
+  "fields": {
+    "action_time": "2024-06-12T17:45:49.456Z",
+    "user": 1,
+    "content_type": 8,
+    "object_id": "2",
+    "object_repr": "Выжигание портретов",
+    "action_flag": 2,
+    "change_message": "[{\"changed\": {\"fields\": [\"\\u041e\\u043f\\u0438\\u0441\\u0430\\u043d\\u0438\\u0435\"]}}]"
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 3,
+  "fields": {
+    "action_time": "2024-06-12T17:46:13.962Z",
+    "user": 1,
+    "content_type": 8,
+    "object_id": "1",
+    "object_repr": "Поделки и сувениры",
+    "action_flag": 2,
+    "change_message": "[{\"changed\": {\"fields\": [\"\\u041e\\u043f\\u0438\\u0441\\u0430\\u043d\\u0438\\u0435\"]}}]"
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 4,
+  "fields": {
+    "action_time": "2024-06-12T17:49:33.333Z",
+    "user": 1,
+    "content_type": 8,
+    "object_id": "1",
+    "object_repr": "Поделки и сувениры",
+    "action_flag": 2,
+    "change_message": "[{\"changed\": {\"fields\": [\"\\u041e\\u043f\\u0438\\u0441\\u0430\\u043d\\u0438\\u0435\"]}}]"
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 5,
+  "fields": {
+    "action_time": "2024-06-12T17:49:51.792Z",
+    "user": 1,
+    "content_type": 8,
+    "object_id": "2",
+    "object_repr": "Выжигание портретов",
+    "action_flag": 2,
+    "change_message": "[{\"changed\": {\"fields\": [\"\\u041e\\u043f\\u0438\\u0441\\u0430\\u043d\\u0438\\u0435\"]}}]"
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 6,
+  "fields": {
+    "action_time": "2024-06-12T17:50:02.647Z",
+    "user": 1,
+    "content_type": 8,
+    "object_id": "3",
+    "object_repr": "Выжигание картин",
+    "action_flag": 2,
+    "change_message": "[{\"changed\": {\"fields\": [\"\\u041e\\u043f\\u0438\\u0441\\u0430\\u043d\\u0438\\u0435\"]}}]"
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 7,
+  "fields": {
+    "action_time": "2024-06-12T17:50:39.652Z",
+    "user": 1,
+    "content_type": 8,
+    "object_id": "3",
+    "object_repr": "Выжигание картин",
+    "action_flag": 2,
+    "change_message": "[{\"changed\": {\"fields\": [\"\\u041e\\u043f\\u0438\\u0441\\u0430\\u043d\\u0438\\u0435\"]}}]"
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 8,
+  "fields": {
+    "action_time": "2024-06-12T17:51:19.224Z",
+    "user": 1,
+    "content_type": 8,
+    "object_id": "3",
+    "object_repr": "Выжигание картин",
+    "action_flag": 2,
+    "change_message": "[{\"changed\": {\"fields\": [\"\\u041e\\u043f\\u0438\\u0441\\u0430\\u043d\\u0438\\u0435\"]}}]"
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 9,
+  "fields": {
+    "action_time": "2024-06-12T18:33:02.072Z",
+    "user": 1,
+    "content_type": 9,
+    "object_id": "5",
+    "object_repr": "Ивановский Тимофей Владиславович",
+    "action_flag": 3,
+    "change_message": ""
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 10,
+  "fields": {
+    "action_time": "2024-06-12T18:33:02.076Z",
+    "user": 1,
+    "content_type": 9,
+    "object_id": "4",
+    "object_repr": "Ивановский Тимофей Владиславович",
+    "action_flag": 3,
+    "change_message": ""
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 11,
+  "fields": {
+    "action_time": "2024-06-12T18:33:02.081Z",
+    "user": 1,
+    "content_type": 9,
+    "object_id": "3",
+    "object_repr": "Ивановский Тимофей Владиславович",
+    "action_flag": 3,
+    "change_message": ""
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 12,
+  "fields": {
+    "action_time": "2024-06-12T18:33:02.085Z",
+    "user": 1,
+    "content_type": 9,
+    "object_id": "2",
+    "object_repr": "Ивановский Тимофей Владиславович",
+    "action_flag": 3,
+    "change_message": ""
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 13,
+  "fields": {
+    "action_time": "2024-06-12T18:33:02.088Z",
+    "user": 1,
+    "content_type": 9,
+    "object_id": "1",
+    "object_repr": "Ивановский Тимофей Владиславович",
+    "action_flag": 3,
+    "change_message": ""
+  }
+},
+{
   "model": "auth.permission",
   "pk": 1,
   "fields": {
@@ -324,11 +493,47 @@
   }
 },
 {
+  "model": "auth.permission",
+  "pk": 37,
+  "fields": {
+    "name": "Can add Изображение типа продукта",
+    "content_type": 10,
+    "codename": "add_producttypeimage"
+  }
+},
+{
+  "model": "auth.permission",
+  "pk": 38,
+  "fields": {
+    "name": "Can change Изображение типа продукта",
+    "content_type": 10,
+    "codename": "change_producttypeimage"
+  }
+},
+{
+  "model": "auth.permission",
+  "pk": 39,
+  "fields": {
+    "name": "Can delete Изображение типа продукта",
+    "content_type": 10,
+    "codename": "delete_producttypeimage"
+  }
+},
+{
+  "model": "auth.permission",
+  "pk": 40,
+  "fields": {
+    "name": "Can view Изображение типа продукта",
+    "content_type": 10,
+    "codename": "view_producttypeimage"
+  }
+},
+{
   "model": "auth.user",
   "pk": 1,
   "fields": {
     "password": "pbkdf2_sha256$720000$raYiqMp0s07NzgsNZbqWo1$fg0uZVyfzeCqN6FMeFFw2++SfAhC1aDEfdUZfL6FOzw=",
-    "last_login": "2024-06-11T09:22:24.582Z",
+    "last_login": "2024-06-12T17:44:58.327Z",
     "is_superuser": true,
     "username": "123",
     "first_name": "",
@@ -414,24 +619,46 @@
   }
 },
 {
+  "model": "contenttypes.contenttype",
+  "pk": 10,
+  "fields": {
+    "app_label": "app",
+    "model": "producttypeimage"
+  }
+},
+{
+  "model": "sessions.session",
+  "pk": "fxygy5a9lzzuslkfy2a05n3h4m37t3qh",
+  "fields": {
+    "session_data": ".eJxVjDsOwyAQRO9CHaEFDOymTO8zIL7BSYQlY1dR7h5bcpFounlv5s2c39bqtp4XNyV2ZYJdfrvg4zO3A6SHb_eZx7mtyxT4ofCTdj7OKb9up_t3UH2v-9oUq0FmLNZn2ENGWUChCxJJioNWkUBnoQIOxUowQqYCxiAUVF4S-3wBv_c2nQ:1sHS1q:OW7p1ArI1BIbdbkKofjLewSMDPWyBgYQfMnki0Sv8QE",
+    "expire_date": "2024-06-26T17:44:58.333Z"
+  }
+},
+{
   "model": "app.producttype",
   "pk": 1,
   "fields": {
-    "title": "Поделки и сувениры"
+    "title": "Поделки и сувениры",
+    "description": "Украсьте интерьер любого помещения, порадуйте себя и близких вместе с нами!\r\nИмеем обширный опыт в создании поделок и сувениров из дерева. Начиная с магнитиков на холодильник и брелок, заканчивая полуметровыми композициями. \r\nМы используем только качественные материалы и тщательно проработанные дизайны, чтобы каждое изделие было настоящим произведением искусства.",
+    "img": ""
   }
 },
 {
   "model": "app.producttype",
   "pk": 2,
   "fields": {
-    "title": "Выжигание портретов"
+    "title": "Выжигание портретов",
+    "description": "Украсьте интерьер любого помещения, порадуйте себя и близких вместе с нами!\r\nИмеем обширный опыт в выжигании портретов на дереве. Начиная с простых фотографий и заканчивая семейными снимками.\r\nРаботаем с форматами: A6 - A5 - A4 - A3\r\nМы используем только качественные материалы и тщательно проработанные дизайны, чтобы каждый портрет был настоящим произведением искусства.",
+    "img": ""
   }
 },
 {
   "model": "app.producttype",
   "pk": 3,
   "fields": {
-    "title": "Выжигание картин"
+    "title": "Выжигание картин",
+    "description": "Украсьте интерьер любого помещения, порадуйте себя и близких вместе с нами!\r\nИмеем обширный опыт в выжигании картин на дереве. Начиная с миниатюрных изображений и заканчивая величественными творениями.\r\nРаботаем с форматами: A6 - A5 - A4 - A3\r\nМы используем только качественные материалы и тщательно проработанные дизайны, чтобы каждая картина была настоящим произведением искусства.",
+    "img": ""
   }
 },
 {
@@ -440,6 +667,7 @@
   "fields": {
     "title": "Поделка 1",
     "type": 1,
+    "description": "",
     "price": "1000.00",
     "img": "product_img/default.png"
   }
@@ -450,6 +678,7 @@
   "fields": {
     "title": "Поделка 2",
     "type": 1,
+    "description": "",
     "price": "1000.00",
     "img": "product_img/default.png"
   }
@@ -460,6 +689,7 @@
   "fields": {
     "title": "Поделка 3",
     "type": 1,
+    "description": "",
     "price": "1500.00",
     "img": "product_img/default.png"
   }
@@ -470,6 +700,7 @@
   "fields": {
     "title": "Поделка 4",
     "type": 1,
+    "description": "",
     "price": "1450.00",
     "img": "product_img/default.png"
   }
@@ -480,6 +711,7 @@
   "fields": {
     "title": "Поделка 5",
     "type": 1,
+    "description": "",
     "price": "970.00",
     "img": "product_img/default.png"
   }
@@ -490,6 +722,7 @@
   "fields": {
     "title": "Поделка 6",
     "type": 1,
+    "description": "",
     "price": "300.00",
     "img": "product_img/default.png"
   }
@@ -500,6 +733,7 @@
   "fields": {
     "title": "Поделка 7",
     "type": 1,
+    "description": "",
     "price": "3000.00",
     "img": "product_img/default.png"
   }
@@ -510,6 +744,7 @@
   "fields": {
     "title": "Поделка 8",
     "type": 1,
+    "description": "",
     "price": "8000.00",
     "img": "product_img/default.png"
   }
@@ -520,6 +755,7 @@
   "fields": {
     "title": "Поделка 9",
     "type": 1,
+    "description": "",
     "price": "4500.00",
     "img": "product_img/default.png"
   }
@@ -530,6 +766,7 @@
   "fields": {
     "title": "Портрет 1",
     "type": 2,
+    "description": "",
     "price": "4750.00",
     "img": "product_img/default.png"
   }
@@ -540,6 +777,7 @@
   "fields": {
     "title": "Портрет 2",
     "type": 2,
+    "description": "",
     "price": "3000.00",
     "img": "product_img/default.png"
   }
@@ -550,6 +788,7 @@
   "fields": {
     "title": "Портрет 3",
     "type": 2,
+    "description": "",
     "price": "12500.00",
     "img": "product_img/default.png"
   }
@@ -560,6 +799,7 @@
   "fields": {
     "title": "Портрет 4",
     "type": 2,
+    "description": "",
     "price": "5600.00",
     "img": "product_img/default.png"
   }
@@ -570,6 +810,7 @@
   "fields": {
     "title": "Портрет 5",
     "type": 2,
+    "description": "",
     "price": "12500.00",
     "img": "product_img/default.png"
   }
@@ -580,6 +821,7 @@
   "fields": {
     "title": "Картина 1",
     "type": 3,
+    "description": "",
     "price": "17500.00",
     "img": "product_img/default.png"
   }
@@ -590,6 +832,7 @@
   "fields": {
     "title": "Картина 2",
     "type": 3,
+    "description": "",
     "price": "15000.00",
     "img": "product_img/default.png"
   }
@@ -600,56 +843,33 @@
   "fields": {
     "title": "Картина 3",
     "type": 3,
+    "description": "",
     "price": "9800.00",
     "img": "product_img/default.png"
   }
 },
 {
   "model": "app.feedback",
-  "pk": 1,
-  "fields": {
-    "author_full_name": "Ивановский Тимофей Владиславович",
-    "author_tg": "@PolinaScrbbs",
-    "product": 1,
-    "content": "Вы красавчики, лучшие",
-    "estimation": 5,
-    "date": "2024-06-11T09:22:46.854Z"
-  }
-},
-{
-  "model": "app.feedback",
-  "pk": 2,
+  "pk": 6,
   "fields": {
     "author_full_name": "Ивановский Тимофей Владиславович",
     "author_tg": "@PolinaScrbbs",
     "product": 15,
-    "content": "Фигня -реп",
-    "estimation": 1,
-    "date": "2024-06-11T09:23:57.358Z"
-  }
-},
-{
-  "model": "app.feedback",
-  "pk": 3,
-  "fields": {
-    "author_full_name": "Ивановский Тимофей Владиславович",
-    "author_tg": "@PolinaScrbbs",
-    "product": 7,
-    "content": "Ну такое, могло быть и лучше",
+    "content": "2323312",
     "estimation": 3,
-    "date": "2024-06-11T09:24:17.273Z"
+    "date": "2024-06-12T18:33:13.773Z"
   }
 },
 {
   "model": "app.feedback",
-  "pk": 4,
+  "pk": 7,
   "fields": {
     "author_full_name": "Ивановский Тимофей Владиславович",
     "author_tg": "@PolinaScrbbs",
-    "product": 5,
-    "content": "НУ типа заебок",
+    "product": 17,
+    "content": "2313323",
     "estimation": 5,
-    "date": "2024-06-11T09:34:39.577Z"
+    "date": "2024-06-12T18:33:35.303Z"
   }
 }
 ]

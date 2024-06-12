@@ -1,5 +1,5 @@
 import re
-from django.http import HttpResponseBadRequest, HttpResponseRedirect
+from django.http import HttpResponseBadRequest, HttpResponseRedirect, JsonResponse
 from django.shortcuts import get_object_or_404, redirect, render
 from django.db.models import Avg
 from django.urls import reverse
@@ -28,8 +28,14 @@ class FeedbackView(View):
         product_id = int(request.POST.get('product'))
         content = request.POST.get('content')
         estimation = int(request.POST.get('estimation'))
+
+        error = None
+
+        if Feedback.objects.filter(author_tg=author_tg, product_id=product_id).exists():
+            error = "Вы уже оставляли отзыв об этом продукте."
         
-        error = self.validate_feedback(author_full_name, author_tg, product_id, content, estimation)
+        if error is None:
+            error = self.validate_feedback(author_full_name, author_tg, product_id, content, estimation)
 
         if error is not None:
             context = self.get_context()
@@ -56,6 +62,7 @@ class FeedbackView(View):
         products = Product.objects.all()
         feedbacks = Feedback.objects.all()
         reviews_count = feedbacks.count()
+
         average_estimation = self.get_average_estimation()
 
         context = {
@@ -107,11 +114,33 @@ class FeedbackView(View):
 
 def services(request, *args, **kwargs):
     type_title = kwargs.get("type").replace("_", " ")
+    type = ProductType.objects.get(title=type_title)
 
     context = {
         "title": type_title,
-        "products": Product.objects.filter(type = ProductType.objects.get(title=type_title)).order_by("price")
+        "description": type.description,
+        # "img_url": type.img.url,
+        "products": Product.objects.filter(type = type).order_by("price")
     }
 
     return render(request, 'services.html', context)
+
+def product(request):
+    if request.method == 'GET':
+        product_id = request.GET.get('product_id')
+        print(product_id)
+        try:
+            product = Product.objects.get(id=product_id)
+            return JsonResponse({
+                'id': product.id,
+                'title': product.title,
+                'description': product.description if product.description else "Описание",
+                'price': product.price,
+                'img_url': product.img.url
+            })
+        except Product.DoesNotExist:
+            return JsonResponse({'error': 'Product not found'}, status=404)
+    else:
+        return JsonResponse({'error': 'Invalid request'}, status=400)
+
 

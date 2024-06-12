@@ -7,14 +7,12 @@
             <div class="service__container container">
                 <div class="service__items">
                     <div class="service__info">
-                        <div class="service__title">ПОДЕЛКИ И СУВЕНИРЫ</div>
+                        <div class="service__title">{{title}}</div>
                         <div class="service__description">
-                            <p>
-                                Разнообразный и богатый опыт рамки и место обучения кадров представляет собой интересный эксперимент проверки направлений прогрессивного развития. С другой стороны начало повседневной работы по формированию позиции влечет за собой процесс внедрения и модернизации системы
-                            </p>
-                            <p>
+                            {{ description|linebreaks }}
+                            {% comment %} <p>
                                 Соответствует насущным потребностям. Таким образом дальнейшее развитие различных форм деятельности представляет собой интересный эксперимент проверки систем массового участия. Разнообразный и богатый опыт постоянный количественный рост и сфера нашей активности требуют от нас
-                            </p>
+                            </p> {% endcomment %}
                         </div>
                     </div>
                     <div class="service__img">
@@ -49,10 +47,16 @@
                         <div class="order__title">ТАКЖЕ МЫ РАБОТАЕМ ИНДИВИДУАЛЬНО ПОД ЗАКАЗ</div>
                         <div class="order__description">
                             <p>
-                                Повседневная практика показывает, что начало повседневной работы по формированию позиции представляет собой интересный эксперимент проверки системы обучения кадров, соответствует насущным потребностям. Таким образом укрепление и развитие структуры представляет собой
+                                Иногда необходимо что-то уникальное, необычное – отличающееся от всех!
                             </p>
                             <p>
-                                Формированию позиции представляет собой интересный эксперимент проверки системы обучения кадров, соответствует насущным потребностям. Таким образом укрепление и развитие структуры представляет собой интересный эксперимент проверки дальнейших направлений развития.
+                                Мы работаем индивидуально с клиентом, каждый портрет выполняется с особым вниманием к деталям и тщательностью, чтобы передать характер и черты лица изображаемого человека.
+                            </p>
+                            <p>
+                                Мы используем только качественные материалы и современное оборудование, что позволяет нам добиваться высокого уровня детализации и реалистичности в наших работах. 
+                            </p>
+                            <p>
+                                Для заказа - пишите или звоните нам прямо сейчас!
                             </p>
                         </div>
                         <div class="order__icons">
@@ -72,7 +76,7 @@
                 <div class="products__name">Готовая продукция</div>
                 <div class="products__items">
                     {% for product in products %}
-                        <div  class="products__item">
+                        <div  class="products__item" data-id={{product.id}}>
                             <img class="products__img" src="{{product.img.url}}" alt="productImage">
                             <div class="products__title">{{product.title}}</div>
                             <div class="products_price">{{product.price}}р</div>
@@ -84,17 +88,17 @@
                             
                             <div class="product">
                                 <div class="product__img">
-                                    <img src="{% static 'img/img.png' %}" alt="">
+                                    <img src="{% static 'card_product.img.url' %}" id="modalProductImage" alt="">
                                 </div>
                                 <div class="product__info">
-                                    <div class="product__title">Товар №1</div>
-                                    <div class="product__price">5000 р.</div>
-                                    <div class="product__description">Что начало повседневной работы по формированию позиции представляет собой интересный эксперимент проверки системы</div>
+                                    <div class="product__title" id="modalProductTitle"></div>
+                                    <div class="product__price" id="modalProductPrice"></div>
+                                    <div class="product__description" id="modalProductDescription"></div>
                                     <div class="product__subtitle">Для заказа пишите: </div>
                                     <div class="product__icons">
-                                        <a href="#" class="product__icon"><img src="{% static 'icon/tg.svg' %}" alt=""></a>
-                                        <a href="#" class="product__icon"><img src="{% static 'icon/vk.svg' %}" alt=""></a>
-                                        <a href="https://vk.com/club223543823" class="product__icon"><img src="{% static 'icon/ws.svg' %}" alt=""></a>
+                                        <a href="https://t.me/+faxBbkmwmlkxZGMy" class="product__icon"><img src="{% static 'icon/tg.svg' %}" alt=""></a>
+                                        <a href="https://vk.com/club223543823" class="product__icon"><img src="{% static 'icon/vk.svg' %}" alt=""></a>
+                                        <a class="product__icon"><img src="{% static 'icon/ws.svg' %}" alt=""></a>
                                     </div>
                                 </div>
                             </div>
