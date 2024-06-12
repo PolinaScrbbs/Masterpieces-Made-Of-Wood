@@ -1,13 +1,8 @@
 {% extends "base.html" %}
 {% load static %}
 {% load tags %}
-
 {% block content %}
-<style>
-    html{
-        height: initial;
-    }
-</style>
+<html lang="en" style="height: 100%;">
     <main>
         <div class="reviews">
             <div class="reviews__title">
@@ -106,46 +101,4 @@
 <script src="https://code.jquery.com/jquery-3.7.1.min.js" integrity="sha256-/JqT3SQfawRcv/BIHPThkBvs0OEvtFFmqPF/lYI/Cxo=" crossorigin="anonymous"></script>
     <script src="{% static 'js/reviews.js' %}"></script>
     <script src="{% static 'js/header.js' %}"></script>
-    <script>
-        document.addEventListener('DOMContentLoaded', function () {
-            var modal = document.getElementById('myModal');
-            var closeModal = document.querySelector('.modal .close');
-
-            closeModal.onclick = function() {
-                modal.style.display = 'none';
-            }
-
-            window.onclick = function(event) {
-                if (event.target == modal) {
-                    modal.style.display = 'none';
-                }
-            }
-
-            var select = document.querySelector('.dropdown .select');
-            var menu = document.querySelector('.dropdown-menu');
-            var hiddenInput = document.querySelector('input[name="product"]');
-
-            select.addEventListener('click', function () {
-                menu.classList.toggle('show');
-            });
-
-            menu.addEventListener('click', function (e) {
-                var target = e.target;
-                if (target.tagName === 'LI') {
-                    hiddenInput.value = target.getAttribute('data-value');
-                    select.querySelector('span').textContent = target.textContent;
-                    menu.classList.remove('show');
-                }
-            });
-        });
-    </script>
-
-    <script>
-        document.querySelectorAll('.dropdown-menu li').forEach(function(item) {
-            item.addEventListener('click', function() {
-                var value = this.getAttribute('data-value');
-                document.getElementById('product-id').value = value;
-            });
-        });
-    </script>
 {% endblock scripts %}

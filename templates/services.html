@@ -72,12 +72,35 @@
                 <div class="products__name">Готовая продукция</div>
                 <div class="products__items">
                     {% for product in products %}
-                        <div class="products__item">
+                        <div  class="products__item">
                             <img class="products__img" src="{{product.img.url}}" alt="productImage">
                             <div class="products__title">{{product.title}}</div>
                             <div class="products_price">{{product.price}}р</div>
                         </div>
                     {% endfor %}
+                    <div id="productModal" class="modal">
+                        <div class="modal-content">
+                            <span class="close">&times;</span>
+                            
+                            <div class="product">
+                                <div class="product__img">
+                                    <img src="{% static 'img/img.png' %}" alt="">
+                                </div>
+                                <div class="product__info">
+                                    <div class="product__title">Товар №1</div>
+                                    <div class="product__price">5000 р.</div>
+                                    <div class="product__description">Что начало повседневной работы по формированию позиции представляет собой интересный эксперимент проверки системы</div>
+                                    <div class="product__subtitle">Для заказа пишите: </div>
+                                    <div class="product__icons">
+                                        <a href="#" class="product__icon"><img src="{% static 'icon/tg.svg' %}" alt=""></a>
+                                        <a href="#" class="product__icon"><img src="{% static 'icon/vk.svg' %}" alt=""></a>
+                                        <a href="https://vk.com/club223543823" class="product__icon"><img src="{% static 'icon/ws.svg' %}" alt=""></a>
+                                    </div>
+                                </div>
+                            </div>
+
+                        </div>
+                    </div>
                 </div>
                 <div class="products__btn">
                     <button class="btn" id="showMoreBtn">Показать еще</button>

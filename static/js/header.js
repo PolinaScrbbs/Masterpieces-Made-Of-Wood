@@ -14,3 +14,30 @@ document.addEventListener('DOMContentLoaded', function () {
         dropdownMenu.classList.toggle('show');
     });
 });
+
+
+//========dropmenu
+const service = document.querySelector(".header__openMenu");
+const menu = document.querySelector(".drop-menu");
+
+service.addEventListener("mouseenter", () => {
+    menu.classList.add("show");
+});
+
+service.addEventListener("mouseleave", (event) => {
+    const relatedTarget = event.relatedTarget;
+    if (!menu.contains(relatedTarget)) {
+        menu.classList.remove("show");
+    }
+});
+
+menu.addEventListener("mouseleave", (event) => {
+    const relatedTarget = event.relatedTarget;
+    if (!service.contains(relatedTarget)) {
+        menu.classList.remove("show");
+    }
+});
+
+menu.addEventListener("mouseenter", () => {
+    menu.classList.add("show");
+});

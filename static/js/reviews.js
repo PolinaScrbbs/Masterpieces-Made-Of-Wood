@@ -15,7 +15,6 @@ window.onclick = function(event) {
         modal.classList.remove("show");
     }
 }
-
 //=========кастом dropdown
 
 $('.dropdown').click(function () {
@@ -60,3 +59,30 @@ function updateFeedbackText() {
     }
 }
 
+//=-================
+document.addEventListener('DOMContentLoaded', function () {
+    var select = document.querySelector('.dropdown .select');
+    var menu = document.querySelector('.dropdown-menu');
+    var hiddenInput = document.querySelector('input[name="product"]');
+
+    select.addEventListener('click', function () {
+        menu.classList.toggle('show');
+    });
+
+    menu.addEventListener('click', function (e) {
+        var target = e.target;
+        if (target.tagName === 'LI') {
+            hiddenInput.value = target.getAttribute('data-value');
+            select.querySelector('span').textContent = target.textContent;
+            menu.classList.remove('show');
+        }
+    });
+});
+
+//================
+document.querySelectorAll('.dropdown-menu li').forEach(function(item) {
+    item.addEventListener('click', function() {
+        var value = this.getAttribute('data-value');
+        document.getElementById('product-id').value = value;
+    });
+});
