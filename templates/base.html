@@ -35,14 +35,14 @@
                     <a href="{% url 'reviews' %}" class="header__link">Отзывы</a>
                 </div>
                 <div class="header__item">
-                    <a href="{% url 'index' %}" class="header__logo">LOGO</a>
+                    <a href="{% url 'index' %}" class="header__logo">Главная</a>
                 </div>
                 <div class="header__item header__burger">
                     <div class=""><img src="{% static 'icon/burger.svg' %}" alt=""></div>
                 </div>
                 <div class="header__item">
                     <a href="{% url 'about' %}" class="header__link">О нас</a>
-                    <a href="#" class="header__link">8(999)123-45-67</a>
+                    <a class="header__link">8(999)123-45-67</a>
                 </div>
             </div>
             <div class="header__body">
@@ -50,9 +50,9 @@
 
                 <a href="#" class="header__link header__menu">Услуги</a>
                 <div class="dropdown-menu">
-                    <a href="#" class="dropdown-item">Поделки и сувениры</a>
-                    <a href="#" class="dropdown-item">Выжигание портретов</a>
-                    <a href="#" class="dropdown-item">Выжигание картин</a>
+                    <a href="{% url 'services' type='Поделки_и_сувениры' %}" class="dropdown-item">Поделки и сувениры</a>
+                    <a href="{% url 'services' type='Выжигание_портретов' %}" class="dropdown-item">Выжигание портретов</a>
+                    <a href="{% url 'services' type='Выжигание_картин' %}" class="dropdown-item">Выжигание картин</a>
                 </div>
                 <a href="reviews.html" class="header__link">Отзывы</a>
                 <a href="aboutUs.html" class="header__link">О нас</a>
@@ -67,13 +67,13 @@
     <footer class="footer">
         <div class="footer__container container">
             <div class="footer__items">
-                <a href="{% url 'index' %}" class="footer__link">Каталог</a>
+                <a href="{% url 'index' %}" class="footer__link">Главная</a>
                 <a href="{% url 'about' %}" class="footer__link">О нас</a>
                 <a href="aboutUs.html" class="footer__link">Доставка</a>
-                <a href="#" class="footer__link">Оплата</a>
+                {% comment %} <a href="#" class="footer__link">Оплата</a> {% endcomment %}
             </div>
             <div class="footer__bottom">
-                <div>LOGO</div>
+                <div>Шедевры из дерева | Курск</div>
                 <div class="footer__adress">
                     Москва, ул Мясницкая д.10, 3 этаж офис 204 <br> с 9:00 до 20:0
                 </div>
