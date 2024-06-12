@@ -47,53 +47,51 @@
                         <button id="openFeedbackBtn">Написать</button>
                     </div>
 
+                    <!-- Модальное окно для оставления отзыва -->
                     <div id="myModal" class="modal">
                         <div class="modal-content">
                             <span class="close">&times;</span>
-                            <div class="modal__title">Оставьте свой отзыв</div>                            
-                                <form method="post" class="feedback">
-                                    <div class="feedback__form cf">
-                                        <div class="half feedback__left cf">
-                                          <input type="text" id="input-name" placeholder="Полное имя">
-                                          <input type="email" id="input-email" placeholder="Ваш телеграм">
+                            <div class="modal__title">Оставьте свой отзыв</div>
+                            <form method="post" class="feedback">
+                                {% csrf_token %}
+                                <div class="feedback__form cf">
+                                    <div class="half feedback__left cf">
+                                        <input type="text" id="input-name" name="author_full_name" placeholder="Полное имя" required>
+                                        <input type="text" id="input-email" name="author_tg" placeholder="Ваш телеграм" required>
 
-                                          <div class="menu-container">                                          
-                                              <div class="dropdown">
+                                        <div class="menu-container">
+                                            <div class="dropdown">
                                                 <div class="select">
-                                                  <span>Выберите продукт</span>
-                                                  <i class="fa fa-chevron-left"></i>
+                                                    <span>Выберите продукт</span>
+                                                    <i class="fa fa-chevron-left"></i>
                                                 </div>
-                                                <input type="hidden" name="products">
+                                                <input type="hidden" name="product" id="product-id">
                                                 <ul class="dropdown-menu">
-                                                  <li id="">1</li>
-                                                  <li id="">2</li>
-                                                  <li id="">3</li>
-                                                  <li id="">4</li>
+                                                    {% for product in products %}
+                                                        <li data-value="{{ product.id }}">{{ product.title }}</li>
+                                                    {% endfor %}
                                                 </ul>
-                                              </div>                                          
                                             </div>
-                                          
                                         </div>
-                                        <div class="half feedback__right cf">
-                                          <textarea name="message" type="text" id="input-message" placeholder="Ваш отзыв"></textarea>
-                                          
-                                        </div>  
                                     </div>
-                                    <div class="feedback__btn">
-                                        <div class="feedback-rating">
-                                            <input type="radio" name="star" id="star5" value="5" onclick="updateFeedbackText(this.value)"><label for="star5">&#9733;</label>
-                                            <input type="radio" name="star" id="star4" value="4" onclick="updateFeedbackText(this.value)"><label for="star4">&#9733;</label>
-                                            <input type="radio" name="star" id="star3" value="3" onclick="updateFeedbackText(this.value)"><label for="star3">&#9733;</label>
-                                            <input type="radio" name="star" id="star2" value="2" onclick="updateFeedbackText(this.value)"><label for="star2">&#9733;</label>
-                                            <input type="radio" name="star" id="star1" value="1" onclick="updateFeedbackText(this.value)"><label for="star1">&#9733;</label>
-                                        </div>
-                                        <div class="feedback-est">
-                                           
-                                        </div>
-                                        <button class="" type="submit">Оставить отзыв</button>
+                                    <div class="half feedback__right cf">
+                                        <textarea name="content" id="input-message" placeholder="Ваш отзыв" required></textarea>
                                     </div>
-                                </form>
-
+                                </div>
+                                <div class="feedback__btn">
+                                    <div class="feedback-rating">
+                                        <input type="radio" name="estimation" id="star5" value="5"><label for="star5">&#9733;</label>
+                                        <input type="radio" name="estimation" id="star4" value="4"><label for="star4">&#9733;</label>
+                                        <input type="radio" name="estimation" id="star3" value="3"><label for="star3">&#9733;</label>
+                                        <input type="radio" name="estimation" id="star2" value="2"><label for="star2">&#9733;</label>
+                                        <input type="radio" name="estimation" id="star1" value="1"><label for="star1">&#9733;</label>
+                                    </div>
+                                    {% if error %}
+                                        <div class="error-message">{{ error }}</div>
+                                    {% endif %}
+                                    <button class="" type="submit">Оставить отзыв</button>
+                                </div>
+                            </form>
                         </div>
                     </div>
 
@@ -107,4 +105,46 @@
 <script src="https://code.jquery.com/jquery-3.7.1.min.js" integrity="sha256-/JqT3SQfawRcv/BIHPThkBvs0OEvtFFmqPF/lYI/Cxo=" crossorigin="anonymous"></script>
     <script src="{% static 'js/reviews.js' %}"></script>
     <script src="{% static 'js/header.js' %}"></script>
+    <script>
+        document.addEventListener('DOMContentLoaded', function () {
+            var modal = document.getElementById('myModal');
+            var closeModal = document.querySelector('.modal .close');
+
+            closeModal.onclick = function() {
+                modal.style.display = 'none';
+            }
+
+            window.onclick = function(event) {
+                if (event.target == modal) {
+                    modal.style.display = 'none';
+                }
+            }
+
+            var select = document.querySelector('.dropdown .select');
+            var menu = document.querySelector('.dropdown-menu');
+            var hiddenInput = document.querySelector('input[name="product"]');
+
+            select.addEventListener('click', function () {
+                menu.classList.toggle('show');
+            });
+
+            menu.addEventListener('click', function (e) {
+                var target = e.target;
+                if (target.tagName === 'LI') {
+                    hiddenInput.value = target.getAttribute('data-value');
+                    select.querySelector('span').textContent = target.textContent;
+                    menu.classList.remove('show');
+                }
+            });
+        });
+    </script>
+
+    <script>
+        document.querySelectorAll('.dropdown-menu li').forEach(function(item) {
+            item.addEventListener('click', function() {
+                var value = this.getAttribute('data-value');
+                document.getElementById('product-id').value = value;
+            });
+        });
+    </script>
 {% endblock scripts %}

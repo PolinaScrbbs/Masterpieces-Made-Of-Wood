@@ -13,13 +13,19 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
     <title>{{title}}</title>
+    <style>
+        a {
+            text-decoration: none;
+            color: inherit;
+        }
+    </style>
 </head>
 <body>
     <header class="header">
         <div class="container header__container">
             <div class="header__items">
                 <div class="header__item">
-                    <a href="#" class="header__link">Услуги</a>
+                    <a class="header__link">Услуги</a>
                     <div class="drop-menu">
                         <div class="triangle"></div>
                         <a href="{% url 'services' type='Поделки_и_сувениры' %}" class="drop-item">Поделки и <br> сувениры</a>
@@ -29,7 +35,7 @@
                     <a href="{% url 'reviews' %}" class="header__link">Отзывы</a>
                 </div>
                 <div class="header__item">
-                    <div class="header__logo">LOGO</div>
+                    <a href="{% url 'index' %}" class="header__logo">LOGO</a>
                 </div>
                 <div class="header__item header__burger">
                     <div class=""><img src="{% static 'icon/burger.svg' %}" alt=""></div>
