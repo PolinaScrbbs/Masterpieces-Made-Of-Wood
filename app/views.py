@@ -179,7 +179,7 @@ def product(request):
                 product_data = {
                     'id': product.id,
                     'title': product.title,
-                    'description': product.description if product.description else "Описание",
+                    'description': product.description,
                     'price': product.price,
                     'img_url': product.img.url
                 }

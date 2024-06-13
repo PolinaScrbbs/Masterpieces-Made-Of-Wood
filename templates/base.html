@@ -57,9 +57,9 @@
                     <a href="{% url 'services' type='Выжигание_портретов' %}" class="dropdown-item">Выжигание портретов</a>
                     <a href="{% url 'services' type='Выжигание_картин' %}" class="dropdown-item">Выжигание картин</a>
                 </div>
-                <a href="reviews.html" class="header__link">Отзывы</a>
-                <a href="aboutUs.html" class="header__link">О нас</a>
-                <a href="#" class="header__link">8(999)123-45-67</a>
+                <a href="{% url 'reviews' %}" class="header__link">Отзывы</a>
+                <a href="{% url 'about' %}" class="header__link">О нас</a>
+                <a href="tel:+79065757195" class="header__link">8(999)123-45-67</a>
             </div>
         </div>
     </header>
