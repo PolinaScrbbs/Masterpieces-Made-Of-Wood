@@ -1,31 +1,44 @@
 import re
-from django.http import HttpResponseBadRequest, HttpResponseRedirect, JsonResponse
-from django.shortcuts import get_object_or_404, redirect, render
+from django.http import JsonResponse
+from django.shortcuts import get_object_or_404, render
 from django.db.models import Avg
-from django.urls import reverse
 from django.views import View
+from django.core.cache import cache
 from .models import ProductType, Product, Feedback
-def index(request):
 
-    context = {
-        "title": "Шедевры из дерева",
-    }
+def index(request):
+    cache_key = 'index_page'
+    context = cache.get(cache_key)
+
+    if not context:
+        context = {
+            "title": "Шедевры из дерева",
+        }
+        cache.set(cache_key, context, 60 * 15)
 
     return render(request, 'index.html', context)
 
 def about(request):
+    cache_key = 'about_page'
+    context = cache.get(cache_key)
 
-    context = {
-        "title": "О нас",
-    }
+    if not context:
+        context = {
+            "title": "О нас",
+        }
+        cache.set(cache_key, context, 60 * 15)
 
     return render(request, 'about_us.html', context)
 
 def delivery(request):
+    cache_key = 'delivery_page'
+    context = cache.get(cache_key)
 
-    context = {
-        "title": "Доставка",
-    }
+    if not context:
+        context = {
+            "title": "Доставка",
+        }
+        cache.set(cache_key, context, 60 * 15)
 
     return render(request, 'delivery.html', context)
 
@@ -60,6 +73,8 @@ class FeedbackView(View):
             estimation=estimation
         )
         feedback.save()
+        
+        cache.delete_pattern('feedbacks_*')
 
         return render(request, 'reviews.html', self.get_context())
 
@@ -67,29 +82,44 @@ class FeedbackView(View):
         return render(request, 'reviews.html', self.get_context())
     
     def get_context(self):
-        products = Product.objects.all()
-        feedbacks = Feedback.objects.all()
-        reviews_count = feedbacks.count()
+        cache_key = 'feedbacks_context'
+        context = cache.get(cache_key)
 
-        average_estimation = self.get_average_estimation()
+        if not context:
+            products = Product.objects.all()
+            feedbacks = Feedback.objects.all()
+            reviews_count = feedbacks.count()
 
-        context = {
-            'products': products,
-            'reviews': feedbacks,
-            'reviews_count': reviews_count,
-            'average_estimation': average_estimation,
-        }
+            average_estimation = self.get_average_estimation()
+
+            context = {
+                'products': products,
+                'reviews': feedbacks,
+                'reviews_count': reviews_count,
+                'average_estimation': average_estimation,
+            }
+            cache.set(cache_key, context, 60 * 15)
 
         return context
 
     def get_average_estimation(self):
-        feedbacks = Feedback.objects.all()
-        if feedbacks.exists():
-            avg_estimation = feedbacks.aggregate(Avg('estimation'))['estimation__avg']
-            if avg_estimation is not None:
-                return round(avg_estimation, 1)
-        return 0
-    
+        cache_key = 'average_estimation'
+        avg_estimation = cache.get(cache_key)
+
+        if avg_estimation is None:
+            feedbacks = Feedback.objects.all()
+            if feedbacks.exists():
+                avg_estimation = feedbacks.aggregate(Avg('estimation'))['estimation__avg']
+                if avg_estimation is not None:
+                    avg_estimation = round(avg_estimation, 1)
+                else:
+                    avg_estimation = 0
+            else:
+                avg_estimation = 0
+            cache.set(cache_key, avg_estimation, 60 * 15)
+        
+        return avg_estimation
+
     def validate_feedback(self, author_full_name, author_tg, product_id, content, estimation):
         validators = [
             (lambda: not re.match(r'^[А-ЯЁёа-яё]+\s[А-ЯЁёа-яё]+\s[А-ЯЁёа-яё]+$', author_full_name), "Недопустимый формат для ФИО"),
@@ -122,32 +152,42 @@ class FeedbackView(View):
 
 def services(request, *args, **kwargs):
     type_title = kwargs.get("type").replace("_", " ")
-    type = ProductType.objects.get(title=type_title)
+    cache_key = f'services_{type_title}'
+    context = cache.get(cache_key)
 
-    context = {
-        "title": type_title,
-        "description": type.description,
-        # "img_url": type.img.url,
-        "products": Product.objects.filter(type = type).order_by("price")
-    }
+    if not context:
+        type = ProductType.objects.get(title=type_title)
+
+        context = {
+            "title": type_title,
+            "description": type.description,
+            "products": Product.objects.filter(type=type).order_by("price")
+        }
+        cache.set(cache_key, context, 60 * 15)
 
     return render(request, 'services.html', context)
 
 def product(request):
     if request.method == 'GET':
         product_id = request.GET.get('product_id')
-        print(product_id)
-        try:
-            product = Product.objects.get(id=product_id)
-            return JsonResponse({
-                'id': product.id,
-                'title': product.title,
-                'description': product.description if product.description else "Описание",
-                'price': product.price,
-                'img_url': product.img.url
-            })
-        except Product.DoesNotExist:
-            return JsonResponse({'error': 'Product not found'}, status=404)
+        cache_key = f'product_{product_id}'
+        product_data = cache.get(cache_key)
+
+        if not product_data:
+            try:
+                product = Product.objects.get(id=product_id)
+                product_data = {
+                    'id': product.id,
+                    'title': product.title,
+                    'description': product.description if product.description else "Описание",
+                    'price': product.price,
+                    'img_url': product.img.url
+                }
+                cache.set(cache_key, product_data, 60 * 15)
+            except Product.DoesNotExist:
+                return JsonResponse({'error': 'Product not found'}, status=404)
+
+        return JsonResponse(product_data)
     else:
         return JsonResponse({'error': 'Invalid request'}, status=400)
 
