@@ -38,7 +38,7 @@ var swiper = new Swiper(".mySwiper", {
         // для больших экранов оставляем значения по умолчанию
         425: {
             slidesPerView: 1,
-            spaceBetween: 20,
+            spaceBetween: 220,
             slidesOffsetBefore: 0,
         },
         322: {
