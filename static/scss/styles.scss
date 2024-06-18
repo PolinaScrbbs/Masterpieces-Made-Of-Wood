@@ -24,6 +24,10 @@ main{
 footer{
     flex: 0 0 auto;
 }
+.error-message{
+    color: rgb(189, 0, 0);
+    margin-bottom: 10px;
+}
 //========================================
 
 .header {
@@ -289,7 +293,7 @@ footer{
 
 //===========================================================
 .advantages {
-    margin-bottom: 50px;
+    margin-bottom: 60px;
     // .advantages__container
     &__container {
     }
@@ -1279,6 +1283,9 @@ input:disabled{
         font-weight: 300;
         width: 65%;
         margin: 0 auto;
+        @media (max-width: 768px) {
+            width: 100%;
+        }
     }
 }
 
@@ -1378,6 +1385,9 @@ input:disabled{
     }
     @media (max-width: 768px) {
         object-fit: contain;
+    }
+    @media (max-width: 425px) {
+        height: 100%;
     }
 }
 
